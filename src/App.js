@@ -1,23 +1,48 @@
-import logo from './logo.svg';
 import './App.css';
+import { useRef, useState } from "react";
 
 function App() {
+  const [tarefas, setTarefas] = useState([]);
+  const [novaTarefa, setNovaTarefa] = useState('');
+
+  const ref = useRef(null);
+
+  const adicionar1 = () => {
+    if (novaTarefa.trim() === '') return;
+    setTarefas(prevTarefas => [...prevTarefas, novaTarefa]);
+    setNovaTarefa('');
+    ref.current.focus();
+  };
+
+  const remove = (tarefaParaRemover) => {
+    setTarefas(prevTarefas => prevTarefas.filter(tarefa => tarefa !== tarefaParaRemover));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="body">
+      <h1 className="title">To-Do List</h1>
+      <input
+        ref={ref}
+        className='digitadd'
+        required
+        type="text"
+        value={novaTarefa}
+        onChange={e => setNovaTarefa(e.target.value)}
+      />
+      <button className='additem' onClick={adicionar1}>Adicionar Tarefa</button>
+      {tarefas.length > 0 && (
+        <ul className='items'>
+          {tarefas.map((tarefa, index) => (
+            <>
+              <li key={index} className='item'>
+              <input type='checkbox' />
+              {tarefa}
+              <button className='buttonX' onClick={() => remove(tarefa)}>X</button>
+              </li>
+            </>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }

@@ -1,38 +1,73 @@
-.App {
-  text-align: center;
+.title{
+    color: #00D7FF;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.body{
+    padding: 0;
+    margin: 0;
+    background-color: #5800FF;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;    
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.items{
+    background-color: #0096FF;
+    padding: 20px ;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.item{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    color: aliceblue;
+    width: 250px;
 }
 
-.App-link {
-  color: #61dafb;
+.additem{
+    margin: 10px;
+    background-color: transparent;
+    border: 2px solid #ffff;
+    color: #00D7FF;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.digitadd{
+    background-color: transparent;
+    border: 2px dashed white;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    color: aliceblue;
+}
+
+.digitadd:focus{
+    background-color: #00D7FF;
+    border: 1px double gold;
+}
+
+.buttonX{
+    background-color: transparent;
+    color: aliceblue;
+    border: 2px dotted aliceblue;
+
+}
+
+.buttonX:hover{
+    scale: 1.25;
+    transition: 0.5s; 
+    border: 1px solid red;
+    color: red;
+}
+
+.additem:hover{
+    scale: 1.15;
+    transition: 0.5s;
 }
